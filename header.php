@@ -169,10 +169,9 @@
     <div class="navbar-collapse">
 
 
-        <?php wp_nav_menu(array(
-                'menu' => 'primary',
-                'menu_id' => 'header-top',
-                'menu_class' => 'main-navigation'
+<?php wp_nav_menu(array(
+                'theme_location' => 'header-top',
+                'menu_class' => 'main-navigation'   
         )); ?>
 
         <!-- <li><a href="index-2.html"   class="parent"  >Home</a> </li>

@@ -1,34 +1,38 @@
 <?php get_header(); ?>
+<?php if(have_posts()): while(have_posts()): the_post(); ?>
 <div class="breadcrumb parallax-container">
   <div class="parallax"><img src="image/prlx.jpg" alt="#"></div>
-  <h1>We Have Got Answers</h1>
-  <ul>
-    <li><a href="index-2.html">Home</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="single-blog.html">Singale Post</a></li>
-  </ul>
+  <h1><?php the_title(); ?></h1>
+  <?php the_breadcrumb(); ?>
 </div>
 <div class="container">
   <div class="row">
     <div class="content col-sm-9">
       <div class="blog1 blog">
-        <div class="blog-image"> <a href="#" class="blog-imagelink"><img src="image/blog/blog_1.jpg" alt="#"></a> <span class="blog-hover"></span> </div>
+        
+        <div class="blog-image"> <a href="#" class="blog-imagelink"><?php the_post_thumbnail(); ?></a> <span class="blog-hover"></span> </div>
         <div class="blog-content"> <span class="blog-date">02/05/2016</span>
-          <h2 class="blog-name"><a href="#">You Have Got Questions We have Got Answers</a> </h2>
-          <span class="blog-author">by <a href="#"> funchuk wangadu</a> </span> <span class="blog-comment">3 comments</span>
-          <div class="blog-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae provident minus similique porro assumenda illo dolore ducimus vero ipsum illum ipsa velit, deleniti accusantium repellat facilis tempora ab Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae provident minus similique porro assumenda illo dolore ducimus vero ipsum illum ipsa velit, deleniti accusantium repellat facilis tempora ab Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae provident minus similique porro assumenda illo dolore ducimus vero ipsum illum ipsa velit, deleniti accusantium repellat facilis tempora ab Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae provident minus similique porro assumenda illo dolore ducimus vero ipsum illum ipsa velit, deleniti accusantium repellat facilis tempora ab </div>
-          <blockquote>consectetur adipiscing elit. In rutrum odio urna, vitae ultrices mi malesuada ut. Praesent lacus erat, ultricies ut risus nec, pellentesque interdum purus. In mi justo, consectetur tincidunt sapien eget, venenatis volutpat risus. Maecenas eget pretium eros. Integer tincidunt aliquet ligula in vulputate. Ut ut justo facilisis, vulputate augue vel, vestibulum tortor. Nullam varius lacus non porttitor sodales. Vivamus ultricies est vitae pharetra convallis. Sed suscipit, nisi sit amet tempus mollis, mauris ante tempor risu</blockquote>
+          <h2 class="blog-name"><a href="#"><?php the_title(); ?></a> </h2>
+          <span class="blog-author">by <a href="#"> <?php the_author(); ?></a> </span> <span class="blog-comment">3 comments</span>
+          <div class="blog-desc">
+            <?php the_content(); ?>
+             </div>
+         
         </div>
         <div class="author-about">
           <h3 class="author-about-title">About the Author</h3>
           <div class="author">
-            <div class="author-avatar"> <a href="#"><img alt="" src="image/user1.jpg"></a> </div>
+            <div class="author-avatar"> <a href="#"><?php echo get_avatar( get_the_author_meta( 'ID' ), 64 ); ?></a> </div>
             <div class="author-body">
-              <h5 class="author-name"><a href="#">Radley Lobortis</a></h5>
-              <div class="author-content">Vivamus imperdiet ex sed lobortis luctus. Aenean posuere nulla in turpis porttitor laoreet. Quisque finibus aliquet purus. Ut et mi eu ante interdum .</div>
+              <h5 class="author-name"><a href="#"><?php the_author(); ?></a></h5>
+              <div class="author-content"><?php the_author_description();?></div>
             </div>
           </div>
         </div>
+        <?php 
+                endwhile;
+                endif; ?>
+
         <div id="comments" class="comments-area">
           <h3 class="comment-title">3 comments</h3>
           <ul class="comment-list">

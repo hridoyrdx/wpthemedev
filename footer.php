@@ -123,6 +123,7 @@
         $('.parallax').parallax();
     });
 </script>
+<?php wp_footer(); ?>
 </body>
 
 <!-- Mirrored from html.lionode.com/moonstore/ms01/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 15 Dec 2020 05:22:51 GMT -->
